@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agent Marketplace Proof of Demand — NightBreed Labs</title>
-    <meta name="description" content="The definitive research report on the $10.9B agent-to-agent marketplace. Zero verified transactions. One trust gap. We mapped it.">
+    <title>DecisionLedger — Trust Layer for Agent Commerce</title>
+    <meta name="description" content="Verify any agent skill in real-time. Portable reputation. Cross-platform trust. The infrastructure layer for the $10.9B agent marketplace.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -24,7 +24,6 @@
             --accent: #22c55e;
             --accent-dim: #16a34a;
             --accent-glow: rgba(34, 197, 94, 0.15);
-            --accent-glow-strong: rgba(34, 197, 94, 0.25);
             --red: #ef4444;
             --red-dim: rgba(239, 68, 68, 0.12);
             --yellow: #eab308;
@@ -39,10 +38,9 @@
             color: var(--text-primary);
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
         }
 
-        /* ── Navigation ────────────────────────────── */
+        /* ── Navigation ── */
         nav {
             position: fixed;
             top: 0;
@@ -55,15 +53,14 @@
             justify-content: space-between;
             background: rgba(9, 9, 11, 0.8);
             backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border);
         }
 
         .nav-brand {
-            font-size: 14px;
-            font-weight: 700;
+            font-size: 16px;
+            font-weight: 800;
             color: var(--text-primary);
-            letter-spacing: -0.02em;
+            letter-spacing: -0.03em;
         }
 
         .nav-brand span { color: var(--accent); }
@@ -85,8 +82,8 @@
         .nav-links a:hover { color: var(--text-primary); }
 
         .nav-cta {
-            background: var(--text-primary);
-            color: var(--bg-primary);
+            background: var(--accent);
+            color: #000;
             padding: 8px 18px;
             border-radius: 6px;
             font-size: 13px;
@@ -97,7 +94,7 @@
 
         .nav-cta:hover { opacity: 0.9; }
 
-        /* ── Hero ────────────────────────────────────── */
+        /* ── Hero ── */
         .hero {
             padding: 160px 32px 100px;
             max-width: 900px;
@@ -152,7 +149,7 @@
         .hero-sub {
             font-size: 18px;
             color: var(--text-secondary);
-            max-width: 600px;
+            max-width: 620px;
             margin: 0 auto 48px;
             line-height: 1.7;
         }
@@ -169,8 +166,6 @@
             font-weight: 700;
             text-decoration: none;
             transition: all 0.2s;
-            border: none;
-            cursor: pointer;
         }
 
         .hero-cta:hover {
@@ -179,12 +174,7 @@
             box-shadow: 0 8px 32px rgba(34, 197, 94, 0.25);
         }
 
-        .hero-cta svg {
-            width: 16px;
-            height: 16px;
-            transition: transform 0.2s;
-        }
-
+        .hero-cta svg { width: 16px; height: 16px; transition: transform 0.2s; }
         .hero-cta:hover svg { transform: translateX(3px); }
 
         .hero-meta {
@@ -193,59 +183,40 @@
             color: var(--text-muted);
         }
 
-        /* ── Social Proof ────────────────────────────── */
-        .social-proof {
+        /* ── Stats Bar ── */
+        .stats-bar {
             padding: 60px 32px;
             border-top: 1px solid var(--border);
             border-bottom: 1px solid var(--border);
             background: var(--bg-secondary);
         }
 
-        .social-proof-inner {
+        .stats-inner {
             max-width: 900px;
             margin: 0 auto;
-            text-align: center;
-        }
-
-        .social-proof-label {
-            font-size: 12px;
-            font-weight: 600;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 32px;
-        }
-
-        .proof-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 48px;
+            text-align: center;
         }
 
-        .proof-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .proof-number {
+        .stat-num {
             font-size: 36px;
             font-weight: 800;
             letter-spacing: -0.03em;
-            color: var(--text-primary);
         }
 
-        .proof-number.accent { color: var(--accent); }
-        .proof-number.red { color: var(--red); }
+        .stat-num.green { color: var(--accent); }
+        .stat-num.red { color: var(--red); }
 
-        .proof-label {
+        .stat-label {
             font-size: 13px;
             color: var(--text-muted);
             font-weight: 500;
+            margin-top: 4px;
         }
 
-        /* ── Problem Section ────────────────────────── */
+        /* ── Problem ── */
         .problem {
             padding: 120px 32px;
             max-width: 900px;
@@ -308,7 +279,6 @@
             font-size: 16px;
             font-weight: 700;
             margin-bottom: 10px;
-            letter-spacing: -0.01em;
         }
 
         .problem-card p {
@@ -317,20 +287,20 @@
             line-height: 1.65;
         }
 
-        /* ── Report Contents ────────────────────────── */
-        .contents {
+        /* ── How It Works ── */
+        .how {
             padding: 120px 32px;
             background: var(--bg-secondary);
             border-top: 1px solid var(--border);
             border-bottom: 1px solid var(--border);
         }
 
-        .contents-inner {
+        .how-inner {
             max-width: 900px;
             margin: 0 auto;
         }
 
-        .contents h2 {
+        .how h2 {
             font-size: clamp(28px, 4vw, 44px);
             font-weight: 800;
             letter-spacing: -0.03em;
@@ -339,56 +309,57 @@
             max-width: 700px;
         }
 
-        .contents-list {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 0;
+        .how-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
         }
 
-        .contents-item {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            padding: 20px 0;
-            border-bottom: 1px solid var(--border);
-            transition: background 0.15s;
+        .how-step {
+            position: relative;
         }
 
-        .contents-item:last-child { border-bottom: none; }
+        .how-step-num {
+            font-size: 48px;
+            font-weight: 900;
+            color: rgba(34, 197, 94, 0.15);
+            line-height: 1;
+            margin-bottom: 16px;
+        }
 
-        .contents-item:hover { background: rgba(255,255,255,0.02); }
-
-        .contents-num {
-            font-size: 13px;
+        .how-step h3 {
+            font-size: 17px;
             font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .how-step p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.65;
+        }
+
+        .how-step code {
+            display: block;
+            margin-top: 16px;
+            padding: 14px 16px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            font-size: 12px;
             color: var(--accent);
-            min-width: 28px;
-            font-variant-numeric: tabular-nums;
+            overflow-x: auto;
         }
 
-        .contents-title {
-            font-size: 15px;
-            font-weight: 600;
-            color: var(--text-primary);
-            flex: 1;
-        }
-
-        .contents-desc {
-            font-size: 13px;
-            color: var(--text-muted);
-            max-width: 300px;
-            text-align: right;
-        }
-
-        /* ── Evidence Table ────────────────────────── */
-        .evidence {
+        /* ── Features ── */
+        .features {
             padding: 120px 32px;
-            max-width: 1000px;
+            max-width: 900px;
             margin: 0 auto;
         }
 
-        .evidence h2 {
+        .features h2 {
             font-size: clamp(28px, 4vw, 44px);
             font-weight: 800;
             letter-spacing: -0.03em;
@@ -397,64 +368,32 @@
             max-width: 700px;
         }
 
-        .evidence-table {
-            width: 100%;
-            border-collapse: collapse;
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
         }
 
-        .evidence-table th {
-            text-align: left;
-            font-size: 11px;
-            font-weight: 600;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            padding: 12px 16px;
-            border-bottom: 1px solid var(--border);
+        .feature-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 32px 28px;
         }
 
-        .evidence-table td {
-            padding: 16px;
+        .feature-card h3 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
             font-size: 14px;
-            border-bottom: 1px solid var(--border);
-            vertical-align: top;
-        }
-
-        .evidence-table tr:last-child td { border-bottom: none; }
-
-        .evidence-table tr:hover td { background: rgba(255,255,255,0.015); }
-
-        .evidence-table .claim {
-            font-weight: 600;
-            color: var(--text-primary);
-            max-width: 320px;
-        }
-
-        .evidence-table .source {
             color: var(--text-secondary);
+            line-height: 1.65;
         }
 
-        .badge-strong {
-            display: inline-block;
-            padding: 3px 10px;
-            background: var(--accent-glow);
-            color: var(--accent);
-            border-radius: 100px;
-            font-size: 11px;
-            font-weight: 600;
-        }
-
-        .badge-medium {
-            display: inline-block;
-            padding: 3px 10px;
-            background: var(--yellow-dim);
-            color: var(--yellow);
-            border-radius: 100px;
-            font-size: 11px;
-            font-weight: 600;
-        }
-
-        /* ── Pricing ────────────────────────── */
+        /* ── Pricing ── */
         .pricing {
             padding: 120px 32px;
             background: var(--bg-secondary);
@@ -463,7 +402,7 @@
         }
 
         .pricing-inner {
-            max-width: 500px;
+            max-width: 900px;
             margin: 0 auto;
             text-align: center;
         }
@@ -481,160 +420,133 @@
             margin-bottom: 48px;
         }
 
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
         .price-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: 16px;
-            padding: 48px 40px;
+            padding: 40px 28px;
+            text-align: left;
             position: relative;
         }
 
-        .price-card::before {
-            content: '';
+        .price-card.featured {
+            border-color: var(--accent);
+        }
+
+        .price-card.featured::before {
+            content: 'MOST POPULAR';
             position: absolute;
-            inset: -1px;
-            border-radius: 17px;
-            background: linear-gradient(135deg, var(--accent) 0%, transparent 50%);
-            z-index: -1;
-            opacity: 0.3;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent);
+            color: #000;
+            padding: 4px 14px;
+            border-radius: 100px;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+        }
+
+        .price-tier {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 12px;
         }
 
         .price-amount {
-            font-size: 56px;
+            font-size: 40px;
             font-weight: 800;
             letter-spacing: -0.04em;
-            margin-bottom: 8px;
+            margin-bottom: 4px;
         }
 
         .price-period {
-            font-size: 14px;
+            font-size: 13px;
             color: var(--text-muted);
-            margin-bottom: 32px;
+            margin-bottom: 24px;
         }
 
         .price-features {
             list-style: none;
-            text-align: left;
-            margin-bottom: 36px;
+            margin-bottom: 28px;
         }
 
         .price-features li {
-            padding: 10px 0;
-            font-size: 14px;
+            padding: 8px 0;
+            font-size: 13px;
             color: var(--text-secondary);
             display: flex;
-            align-items: center;
-            gap: 12px;
+            align-items: flex-start;
+            gap: 10px;
         }
 
         .price-features li::before {
-            content: '';
-            width: 18px;
-            height: 18px;
-            background: var(--accent-glow);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            content: '✓';
+            color: var(--accent);
+            font-weight: 700;
             flex-shrink: 0;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2322c55e' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: center;
         }
 
         .price-btn {
             display: block;
             width: 100%;
-            padding: 14px;
-            background: var(--accent);
-            color: #000;
-            border: none;
+            padding: 12px;
             border-radius: 8px;
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 700;
             cursor: pointer;
             transition: all 0.2s;
             text-decoration: none;
             text-align: center;
+            border: none;
         }
 
-        .price-btn:hover {
+        .price-btn.primary {
+            background: var(--accent);
+            color: #000;
+        }
+
+        .price-btn.primary:hover {
             background: #16a34a;
             transform: translateY(-1px);
-            box-shadow: 0 8px 32px rgba(34, 197, 94, 0.25);
         }
 
-        .price-guarantee {
-            margin-top: 20px;
-            font-size: 13px;
-            color: var(--text-muted);
-        }
-
-        /* ── Sources ────────────────────────── */
-        .sources {
-            padding: 120px 32px;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .sources h2 {
-            font-size: clamp(28px, 4vw, 40px);
-            font-weight: 800;
-            letter-spacing: -0.03em;
-            margin-bottom: 16px;
-        }
-
-        .sources-sub {
-            font-size: 16px;
-            color: var(--text-secondary);
-            margin-bottom: 48px;
-        }
-
-        .sources-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 16px;
-        }
-
-        .source-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 14px 18px;
-            background: var(--bg-card);
+        .price-btn.secondary {
+            background: transparent;
+            color: var(--text-primary);
             border: 1px solid var(--border);
-            border-radius: 10px;
-            font-size: 13px;
-            color: var(--text-secondary);
-            transition: border-color 0.2s;
         }
 
-        .source-item:hover { border-color: var(--border-hover); }
-
-        .source-dot {
-            width: 6px;
-            height: 6px;
-            background: var(--accent);
-            border-radius: 50%;
-            flex-shrink: 0;
+        .price-btn.secondary:hover {
+            border-color: var(--border-hover);
+            background: var(--bg-card-hover);
         }
 
-        /* ── Footer CTA ────────────────────────── */
-        .footer-cta {
+        /* ── CTA ── */
+        .final-cta {
             padding: 120px 32px;
             text-align: center;
             border-top: 1px solid var(--border);
-            background: var(--bg-secondary);
         }
 
-        .footer-cta h2 {
+        .final-cta h2 {
             font-size: clamp(28px, 4vw, 44px);
             font-weight: 800;
             letter-spacing: -0.03em;
             margin-bottom: 16px;
         }
 
-        .footer-cta p {
+        .final-cta p {
             font-size: 16px;
             color: var(--text-secondary);
             margin-bottom: 40px;
@@ -643,7 +555,7 @@
             margin-right: auto;
         }
 
-        /* ── Footer ────────────────────────── */
+        /* ── Footer ── */
         footer {
             padding: 40px 32px;
             border-top: 1px solid var(--border);
@@ -662,19 +574,15 @@
 
         footer a:hover { color: var(--text-primary); }
 
-        /* ── Responsive ────────────────────────── */
+        /* ── Responsive ── */
         @media (max-width: 768px) {
             nav { padding: 12px 20px; }
             .nav-links { display: none; }
             .hero { padding: 120px 20px 60px; }
-            .proof-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
-            .problem-grid { grid-template-columns: 1fr; }
-            .contents-item { flex-direction: column; align-items: flex-start; gap: 6px; }
-            .contents-desc { text-align: left; max-width: 100%; }
-            .evidence-table { font-size: 13px; }
-            .evidence-table th:nth-child(3), .evidence-table td:nth-child(3) { display: none; }
-            .sources-grid { grid-template-columns: 1fr; }
-            .price-card { padding: 32px 24px; }
+            .stats-inner { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+            .problem-grid, .how-grid { grid-template-columns: 1fr; }
+            .features-grid { grid-template-columns: 1fr; }
+            .pricing-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -682,52 +590,49 @@
 
 <!-- Navigation -->
 <nav>
-    <div class="nav-brand"><span>NB</span> Labs</div>
+    <div class="nav-brand"><span>Decision</span>Ledger</div>
     <ul class="nav-links">
-        <li><a href="#problem">The Problem</a></li>
-        <li><a href="#report">The Report</a></li>
-        <li><a href="#evidence">Evidence</a></li>
+        <li><a href="#problem">Problem</a></li>
+        <li><a href="#how">How It Works</a></li>
+        <li><a href="#features">Features</a></li>
         <li><a href="#pricing">Pricing</a></li>
     </ul>
-    <a href="#pricing" class="nav-cta">Get the Report</a>
+    <a href="#pricing" class="nav-cta">Get API Key</a>
 </nav>
 
 <!-- Hero -->
 <section class="hero">
-    <div class="hero-badge">Research Report — August 2026</div>
-    <h1>The <span class="highlight">$10.9B market</span> with zero trust.</h1>
+    <div class="hero-badge">API — Now in Beta</div>
+    <h1>Trust layer for <span class="highlight">agent commerce.</span></h1>
     <p class="hero-sub">
-        A comprehensive analysis of the agent-to-agent marketplace opportunity. 
-        15+ primary sources. 12+ live platforms. One unsolved problem: trust.
+        Verify any agent skill in real-time. Build portable reputation across platforms. 
+        DecisionLedger is the infrastructure layer the agent marketplace is missing.
     </p>
     <a href="#pricing" class="hero-cta">
-        Get the Full Report
+        Start Building
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
     </a>
-    <p class="hero-meta">444 lines · 15+ sources · Published August 23, 2026</p>
+    <p class="hero-meta">Free tier available · No credit card required</p>
 </section>
 
-<!-- Social Proof -->
-<section class="social-proof">
-    <div class="social-proof-inner">
-        <div class="social-proof-label">Key findings from the research</div>
-        <div class="proof-grid">
-            <div class="proof-item">
-                <div class="proof-number accent">$10.9B</div>
-                <div class="proof-label">Market size (2026)</div>
-            </div>
-            <div class="proof-item">
-                <div class="proof-number red">1,184</div>
-                <div class="proof-label">Malicious skills in one registry</div>
-            </div>
-            <div class="proof-item">
-                <div class="proof-number">26,000</div>
-                <div class="proof-label">Agents hit by one fake skill</div>
-            </div>
-            <div class="proof-item">
-                <div class="proof-number accent">186</div>
-                <div class="proof-label">Real deals in Anthropic's experiment</div>
-            </div>
+<!-- Stats -->
+<section class="stats-bar">
+    <div class="stats-inner">
+        <div>
+            <div class="stat-num green">$10.9B</div>
+            <div class="stat-label">Agent market (2026)</div>
+        </div>
+        <div>
+            <div class="stat-num red">1,184</div>
+            <div class="stat-label">Malicious skills found</div>
+        </div>
+        <div>
+            <div class="stat-num">0</div>
+            <div class="stat-label">Cross-platform verification</div>
+        </div>
+        <div>
+            <div class="stat-num green">12+</div>
+            <div class="stat-label">Marketplaces need this</div>
         </div>
     </div>
 </section>
@@ -735,239 +640,150 @@
 <!-- Problem -->
 <section class="problem" id="problem">
     <div class="section-label">The Problem</div>
-    <h2>Everyone's building agent marketplaces. Nobody can trust them.</h2>
+    <h2>Agent marketplaces are booming. Trust is broken.</h2>
     <div class="problem-grid">
         <div class="problem-card">
             <div class="problem-card-icon red-bg">⚠</div>
-            <h3>Zero verified transactions</h3>
-            <p>A 270-post study of Moltbook (1.5M+ agents) found zero observable agent-to-agent transactions. The demand exists informally — but marketplaces can't capture it.</p>
-        </div>
-        <div class="problem-card">
-            <div class="problem-card-icon yellow-bg">🔓</div>
             <h3>Supply chain attacks</h3>
-            <p>1,184 malicious skills found in one registry. A fake skill passed all security scanners and reached 26,000 agents. No cross-platform verification exists.</p>
+            <p>A fake agent skill passed all security scanners and reached 26,000 agents. 1,184 malicious skills were found in a single registry. There's no way to verify if an agent is safe.</p>
         </div>
         <div class="problem-card">
-            <div class="problem-card-icon green-bg">✓</div>
-            <h3>Proven demand, unserved</h3>
-            <p>Anthropic's experiment: 186 real deals, 46% willingness to pay. Enterprise intent: 93%. The gap isn't demand — it's trust infrastructure.</p>
+            <div class="problem-card-icon yellow-bg">🔒</div>
+            <h3>Siloed reputation</h3>
+            <p>Agent identity and reputation don't transfer between platforms. Every new marketplace means starting from zero. Portable reputation loses 35% of its trust-building power.</p>
+        </div>
+        <div class="problem-card">
+            <div class="problem-card-icon green-bg">→</div>
+            <h3>No trust infrastructure</h3>
+            <p>12+ live marketplaces, $5.4B in funding, zero cross-platform verification. Payment rails exist. Trust rails don't. That's the gap.</p>
         </div>
     </div>
 </section>
 
-<!-- Report Contents -->
-<section class="contents" id="report">
-    <div class="contents-inner">
-        <div class="section-label">What's Inside</div>
-        <h2>A complete map of the agent marketplace opportunity</h2>
-        <ul class="contents-list">
-            <li class="contents-item">
-                <span class="contents-num">01</span>
-                <span class="contents-title">Executive Summary</span>
-                <span class="contents-desc">Key findings and conclusion</span>
-            </li>
-            <li class="contents-item">
-                <span class="contents-num">02</span>
-                <span class="contents-title">Market Gap Evidence</span>
-                <span class="contents-desc">Moltbook study, Project Deal, live platforms</span>
-            </li>
-            <li class="contents-item">
-                <span class="contents-num">03</span>
-                <span class="contents-title">The Trust/Verification Gap</span>
-                <span class="contents-desc">Why cross-platform trust doesn't exist</span>
-            </li>
-            <li class="contents-item">
-                <span class="contents-num">04</span>
-                <span class="contents-title">Demand Signals</span>
-                <span class="contents-desc">Reddit, HN, enterprise hiring, FishDog experiment</span>
-            </li>
-            <li class="contents-item">
-                <span class="contents-num">05</span>
-                <span class="contents-title">Competitive Landscape</span>
-                <span class="contents-desc">12+ platforms mapped with limitations</span>
-            </li>
-            <li class="contents-item">
-                <span class="contents-num">06</span>
-                <span class="contents-title">Payment Protocol Wars</span>
-                <span class="contents-desc">x402, MPP, AP2, Visa TAP comparison</span>
-            </li>
-            <li class="contents-item">
-                <span class="contents-num">07</span>
-                <span class="contents-title">Market Sizing</span>
-                <span class="contents-desc">$10.9B (2026) → $183B (2033) projections</span>
-            </li>
-            <li class="contents-item">
-                <span class="contents-num">08</span>
-                <span class="contents-title">Enterprise Adoption</span>
-                <span class="contents-desc">Gartner, Deloitte, McKinsey data</span>
-            </li>
-            <li class="contents-item">
-                <span class="contents-num">09</span>
-                <span class="contents-title">Evidence Rating</span>
-                <span class="contents-desc">Source quality assessment for every claim</span>
-            </li>
-            <li class="contents-item">
-                <span class="contents-num">10</span>
-                <span class="contents-title">Conclusion & Opportunity Map</span>
-                <span class="contents-desc">Where the money is and why</span>
-            </li>
-        </ul>
+<!-- How It Works -->
+<section class="how" id="how">
+    <div class="how-inner">
+        <div class="section-label">How It Works</div>
+        <h2>Three API calls to verified trust.</h2>
+        <div class="how-grid">
+            <div class="how-step">
+                <div class="how-step-num">01</div>
+                <h3>Verify a skill</h3>
+                <p>Check any agent skill against our threat database. Get a trust score, safety rating, and known vulnerabilities in real-time.</p>
+                <code>POST /v1/verify<br>{"skill": "mcp-server-name"}</code>
+            </div>
+            <div class="how-step">
+                <div class="how-step-num">02</div>
+                <h3>Build reputation</h3>
+                <p>Agents earn portable reputation scores based on verified deliveries, uptime, and community attestation. Reputation follows the agent across platforms.</p>
+                <code>GET /v1/reputation/{agent_id}<br>{"score": 94, "verified": true}</code>
+            </div>
+            <div class="how-step">
+                <div class="how-step-num">03</div>
+                <h3>Enforce trust</h3>
+                <p>Set policies: only allow verified skills, require minimum reputation scores, block known malicious agents. Trust becomes programmable.</p>
+                <code>POST /v1/policies<br>{"min_score": 80, "block_malicious": true}</code>
+            </div>
+        </div>
     </div>
 </section>
 
-<!-- Evidence Table -->
-<section class="evidence" id="evidence">
-    <div class="section-label">Evidence</div>
-    <h2>Every claim backed by primary sources</h2>
-    <table class="evidence-table">
-        <thead>
-            <tr>
-                <th>Claim</th>
-                <th>Source</th>
-                <th>Rating</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td class="claim">Zero A2A transactions in 270 posts</td>
-                <td class="source">Moltbook (1.5M+ agents)</td>
-                <td><span class="badge-strong">STRONG</span></td>
-            </tr>
-            <tr>
-                <td class="claim">186 real deals, 46% willingness to pay</td>
-                <td class="source">Anthropic Project Deal</td>
-                <td><span class="badge-strong">STRONG</span></td>
-            </tr>
-            <tr>
-                <td class="claim">165M+ transactions, ~$50M volume</td>
-                <td class="source">x402 Protocol (Coinbase)</td>
-                <td><span class="badge-strong">STRONG</span></td>
-            </tr>
-            <tr>
-                <td class="claim">1,184 malicious skills, one fake reached 26K agents</td>
-                <td class="source">Hacker News, CSA Research</td>
-                <td><span class="badge-strong">STRONG</span></td>
-            </tr>
-            <tr>
-                <td class="claim">$10.9B-$12B market in 2026</td>
-                <td class="source">Grand View, TBRC, 4+ firms</td>
-                <td><span class="badge-strong">STRONG</span></td>
-            </tr>
-            <tr>
-                <td class="claim">93% enterprise intent, 88% security incidents</td>
-                <td class="source">MuleSoft/Deloitte, Akamai</td>
-                <td><span class="badge-strong">STRONG</span></td>
-            </tr>
-            <tr>
-                <td class="claim">12% A2A conversion rate</td>
-                <td class="source">FishDog (3-week experiment)</td>
-                <td><span class="badge-medium">MEDIUM</span></td>
-            </tr>
-            <tr>
-                <td class="claim">Portable reputation loses 35% effectiveness</td>
-                <td class="source">Electronic Markets (2024)</td>
-                <td><span class="badge-medium">MEDIUM</span></td>
-            </tr>
-        </tbody>
-    </table>
+<!-- Features -->
+<section class="features" id="features">
+    <div class="section-label">Features</div>
+    <h2>Everything you need to trust agents.</h2>
+    <div class="features-grid">
+        <div class="feature-card">
+            <h3>Real-time skill verification</h3>
+            <p>Scan any MCP server, agent skill, or tool description against our continuously updated threat database. Results in under 200ms.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Portable reputation</h3>
+            <p>Agent reputation scores that travel across platforms. No more cold-start tax on every new marketplace.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Threat intelligence</h3>
+            <p>1,184+ malicious skills catalogued. Poisoned tool descriptions, supply chain attacks, API key exposures — all tracked and updated in real-time.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Policy engine</h3>
+            <p>Define trust policies per platform, per workflow, per agent. Enforce minimum reputation scores, block known threats, require verification.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Audit trail</h3>
+            <p>Every verification, every reputation change, every policy decision — logged and queryable. Built for compliance and incident response.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Webhook alerts</h3>
+            <p>Get notified instantly when a trusted agent's reputation drops, a new threat is detected, or a policy is violated.</p>
+        </div>
+    </div>
 </section>
 
 <!-- Pricing -->
 <section class="pricing" id="pricing">
     <div class="pricing-inner">
         <div class="section-label">Pricing</div>
-        <h2>Get the full report</h2>
-        <p class="pricing-sub">One-time purchase. Instant access. No subscription.</p>
-        <div class="price-card">
-            <div class="price-amount">$499 USD</div>
-            <div class="price-period">One-time payment</div>
-            <ul class="price-features">
-                <li>444-line research report (PDF + Markdown)</li>
-                <li>15+ primary sources with URLs</li>
-                <li>12+ platform competitive analysis</li>
-                <li>Market sizing with 6+ research firm data</li>
-                <li>Evidence ratings for every claim</li>
-                <li>Opportunity map and conclusion</li>
-                <li>Free updates for 12 months</li>
-            </ul>
-            <a href="https://paypal.me/decisionledger/499USD" class="price-btn" target="_blank" rel="noopener">
-                Purchase Report — $499 USD
-            </a>
-            <p class="price-guarantee">Secure checkout via PayPal · Instant download</p>
+        <h2>Start free. Scale when ready.</h2>
+        <p class="pricing-sub">No credit card required for free tier.</p>
+        <div class="pricing-grid">
+            <div class="price-card">
+                <div class="price-tier">Starter</div>
+                <div class="price-amount">$0</div>
+                <div class="price-period">Free forever</div>
+                <ul class="price-features">
+                    <li>1,000 verification checks/mo</li>
+                    <li>Basic threat database</li>
+                    <li>1 reputation profile</li>
+                    <li>Community support</li>
+                </ul>
+                <a href="https://paypal.me/decisionledger/0USD" class="price-btn secondary" target="_blank" rel="noopener">Get Started</a>
+            </div>
+            <div class="price-card featured">
+                <div class="price-tier">Pro</div>
+                <div class="price-amount">$499<span style="font-size:16px;font-weight:500;color:var(--text-muted)">/yr</span></div>
+                <div class="price-period">Billed annually</div>
+                <ul class="price-features">
+                    <li>Unlimited verification checks</li>
+                    <li>Full threat intelligence feed</li>
+                    <li>Unlimited reputation profiles</li>
+                    <li>Policy engine</li>
+                    <li>Webhook alerts</li>
+                    <li>Priority support</li>
+                </ul>
+                <a href="https://paypal.me/decisionledger/499USD" class="price-btn primary" target="_blank" rel="noopener">Get Pro</a>
+            </div>
+            <div class="price-card">
+                <div class="price-tier">Enterprise</div>
+                <div class="price-amount">Custom</div>
+                <div class="price-period">Let's talk</div>
+                <ul class="price-features">
+                    <li>Everything in Pro</li>
+                    <li>On-premise deployment</li>
+                    <li>Custom threat intelligence</li>
+                    <li>SLA guarantee</li>
+                    <li>Dedicated support</li>
+                    <li>Integration consulting</li>
+                </ul>
+                <a href="mailto:sales@decisionledger.dev" class="price-btn secondary">Contact Sales</a>
+            </div>
         </div>
     </div>
 </section>
 
-<!-- Sources -->
-<section class="sources">
-    <div class="section-label">Sources</div>
-    <h2>15+ primary sources</h2>
-    <p class="sources-sub">Every data point traceable to its origin.</p>
-    <div class="sources-grid">
-        <div class="source-item">
-            <span class="source-dot"></span>
-            Anthropic Project Deal
-        </div>
-        <div class="source-item">
-            <span class="source-dot"></span>
-            Moltbook 270-Post Study
-        </div>
-        <div class="source-item">
-            <span class="source-dot"></span>
-            Grand View Research
-        </div>
-        <div class="source-item">
-            <span class="source-dot"></span>
-            The Business Research Company
-        </div>
-        <div class="source-item">
-            <span class="source-dot"></span>
-            Gartner / IDC
-        </div>
-        <div class="source-item">
-            <span class="source-dot"></span>
-            MuleSoft / Deloitte
-        </div>
-        <div class="source-item">
-            <span class="source-dot"></span>
-            CSA Research
-        </div>
-        <div class="source-item">
-            <span class="source-dot"></span>
-            The Hacker News
-        </div>
-        <div class="source-item">
-            <span class="source-dot"></span>
-            x402 / Coinbase
-        </div>
-        <div class="source-item">
-            <span class="source-dot"></span>
-            FishDog A2A Experiment
-        </div>
-        <div class="source-item">
-            <span class="source-dot"></span>
-            Presenc AI
-        </div>
-        <div class="source-item">
-            <span class="source-dot"></span>
-            McKinsey
-        </div>
-    </div>
-</section>
-
-<!-- Footer CTA -->
-<section class="footer-cta">
-    <h2>The trust gap is the opportunity.</h2>
-    <p>Payment rails are solved. Discovery is solved. The unsolved problem is trust — and that's where the market is headed.</p>
+<!-- CTA -->
+<section class="final-cta">
+    <h2>Build with trust.</h2>
+    <p>The agent marketplace needs a trust layer. You can build it into your platform today.</p>
     <a href="#pricing" class="hero-cta">
-        Get the Full Report
+        Get Your API Key
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
     </a>
 </section>
 
 <!-- Footer -->
 <footer>
-    <p>&copy; 2026 NightBreed Labs · <a href="mailto:research@nightbreed.dev">research@nightbreed.dev</a></p>
+    <p>&copy; 2026 DecisionLedger · <a href="mailto:sales@decisionledger.dev">sales@decisionledger.dev</a></p>
 </footer>
 
 </body>
