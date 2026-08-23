@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to DecisionLedger</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg: #09090b;
+            --card: #141418;
+            --border: #1e1e24;
+            --text: #fafafa;
+            --text-secondary: #a0a0ab;
+            --text-muted: #63636e;
+            --accent: #22c55e;
+            --accent-glow: rgba(34, 197, 94, 0.15);
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 32px;
+        }
+        .container { max-width: 560px; width: 100%; }
+        .check {
+            width: 64px; height: 64px;
+            background: var(--accent-glow);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 28px;
+        }
+        .check svg { width: 28px; height: 28px; }
+        h1 { font-size: 28px; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 10px; text-align: center; }
+        .subtitle { color: var(--text-secondary); font-size: 15px; margin-bottom: 40px; line-height: 1.6; text-align: center; }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 28px;
+            margin-bottom: 24px;
+        }
+        .card h3 { font-size: 14px; font-weight: 600; margin-bottom: 16px; color: var(--text-secondary); }
+
+        .form-group { margin-bottom: 20px; }
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 12px 14px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text);
+            font-size: 14px;
+            font-family: inherit;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .form-group input:focus { border-color: var(--accent); }
+        .form-group input::placeholder { color: var(--text-muted); }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background: var(--accent);
+            color: #000;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+        .btn:hover { background: #16a34a; }
+        .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+        .error { color: #ef4444; font-size: 13px; margin-top: 8px; display: none; }
+
+        /* Key display */
+        .key-display { display: none; }
+        .key-box {
+            background: var(--bg);
+            border: 1px solid var(--accent);
+            border-radius: 8px;
+            padding: 16px;
+            margin: 16px 0;
+            text-align: center;
+        }
+        .key-label { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+        .key-value {
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            font-size: 16px;
+            color: var(--accent);
+            font-weight: 600;
+            word-break: break-all;
+            user-select: all;
+        }
+        .copy-btn {
+            margin-top: 12px;
+            padding: 8px 20px;
+            background: transparent;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            color: var(--text);
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+        .copy-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+        .next-steps { margin-top: 24px; }
+        .next-steps h4 { font-size: 13px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px; }
+        .next-steps ol { padding-left: 20px; }
+        .next-steps li { font-size: 14px; color: var(--text-secondary); margin-bottom: 8px; line-height: 1.5; }
+        .next-steps code {
+            background: var(--bg);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            color: var(--accent);
+            border: 1px solid var(--border);
+        }
+
+        .docs-link {
+            display: inline-block;
+            margin-top: 16px;
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        .docs-link:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Step 1: Email form -->
+        <div id="step-form">
+            <div class="check">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+            <h1>Welcome to DecisionLedger</h1>
+            <p class="subtitle">Payment confirmed. Enter your email to receive your API key.</p>
+
+            <div class="card">
+                <h3>Your Pro Subscription</h3>
+                <div class="form-group">
+                    <label for="email">Email address</label>
+                    <input type="email" id="email" placeholder="you@company.com" required>
+                </div>
+                <button class="btn" id="submitBtn" onclick="generateKey()">Generate API Key</button>
+                <p class="error" id="error">Please enter a valid email address.</p>
+            </div>
+        </div>
+
+        <!-- Step 2: Key display -->
+        <div class="key-display" id="step-key">
+            <div class="check">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+            <h1>Your API key is ready</h1>
+            <p class="subtitle">Save this key. You'll need it to authenticate every request.</p>
+
+            <div class="card">
+                <h3>Pro Subscription — <span id="display-email"></span></h3>
+                <div class="key-box">
+                    <div class="key-label">Your API Key</div>
+                    <div class="key-value" id="api-key"></div>
+                    <button class="copy-btn" onclick="copyKey()">Copy to clipboard</button>
+                </div>
+            </div>
+
+            <div class="card next-steps">
+                <h3>Quick start</h3>
+                <ol>
+                    <li>Verify an agent skill:<br><code>curl -X POST https://api.decisionledger.dev/v1/verify -H "X-API-Key: <span id="key-instructions"></span>" -d '{"skill": "mcp-server-name"}'</code></li>
+                    <li>Check agent reputation:<br><code>curl https://api.decisionledger.dev/v1/reputation/agent-123 -H "X-API-Key: <span class="key-ref"></span>"</code></li>
+                    <li>Set trust policies:<br><code>curl -X POST https://api.decisionledger.dev/v1/policies -H "X-API-Key: <span class="key-ref"></span>" -d '{"min_score": 80, "block_malicious": true}'</code></li>
+                </ol>
+                <a href="https://ncrmancer.github.io/agent-marketplace-landing/docs" class="docs-link">View full API docs →</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function generateKey() {
+            const email = document.getElementById('email').value.trim();
+            const error = document.getElementById('error');
+            const btn = document.getElementById('submitBtn');
+
+            if (!email || !email.includes('@') || !email.includes('.')) {
+                error.style.display = 'block';
+                return;
+            }
+
+            error.style.display = 'none';
+            btn.disabled = true;
+            btn.textContent = 'Generating...';
+
+            // Generate unique API key
+            const prefix = 'dl';
+            const chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
+            let random = '';
+            for (let i = 0; i < 40; i++) {
+                random += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            const apiKey = `${prefix}-${random.slice(0, 8)}-${random.slice(8, 16)}-${random.slice(16, 24)}-${random.slice(24, 32)}-${random.slice(32)}`;
+
+            // Store in localStorage (in production, this would be a backend call)
+            localStorage.setItem('dl_api_key', apiKey);
+            localStorage.setItem('dl_email', email);
+            localStorage.setItem('dl_plan', 'pro');
+            localStorage.setItem('dl_checks', 'unlimited');
+
+            // Show key
+            document.getElementById('display-email').textContent = email;
+            document.getElementById('api-key').textContent = apiKey;
+            document.getElementById('key-instructions').textContent = apiKey;
+            document.querySelectorAll('.key-ref').forEach(el => el.textContent = apiKey);
+
+            document.getElementById('step-form').style.display = 'none';
+            document.getElementById('step-key').style.display = 'block';
+        }
+
+        function copyKey() {
+            const key = document.getElementById('api-key').textContent;
+            navigator.clipboard.writeText(key).then(() => {
+                const btn = document.querySelector('.copy-btn');
+                btn.textContent = 'Copied!';
+                setTimeout(() => btn.textContent = 'Copy to clipboard', 2000);
+            });
+        }
+
+        // If key already exists, show it
+        const existingKey = localStorage.getItem('dl_api_key');
+        if (existingKey) {
+            const email = localStorage.getItem('dl_email');
+            document.getElementById('display-email').textContent = email;
+            document.getElementById('api-key').textContent = existingKey;
+            document.getElementById('key-instructions').textContent = existingKey;
+            document.querySelectorAll('.key-ref').forEach(el => el.textContent = existingKey);
+            document.getElementById('step-form').style.display = 'none';
+            document.getElementById('step-key').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
